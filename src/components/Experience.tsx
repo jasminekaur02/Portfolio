@@ -34,13 +34,12 @@ export default function ExperienceChronicle() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = () => {
-    const sections = Array.from(containerRef.current.children);
     const scrollLeft = containerRef.current.scrollLeft;
     const width = containerRef.current.offsetWidth;
-
     const index = Math.round(scrollLeft / width);
     setActiveIndex(index);
   };
+  
 
   useEffect(() => {
     const ref = containerRef.current;

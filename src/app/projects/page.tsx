@@ -5,10 +5,8 @@ import Link from 'next/link';
 const ProjectsPage = () => {
     const [activeCategory, setActiveCategory] = useState('All');
 
-    // Categories for the filter bar
     const categories = ['All', 'UI UX', 'FrontEnd', 'BackEnd', 'Machine Learning and AI', 'Robotics', 'Electronics'];
 
-    // Complete portfolio items
     const portfolioItems = [
         {
             id: 1,
@@ -120,12 +118,10 @@ const ProjectsPage = () => {
             technologies: ["ESP32", "DHT11", "Bluetooth", "Arduino IDE"],
             status: "Completed"
         },
-        // Add more projects here as needed
-        ,
         {
             id: 11,
-            title: " Speed Measuring Device",
-            description: " Designed with Arduino, HC-SR04 ultrasonic sensor, and LED display to detect object speed",
+            title: "Speed Measuring Device",
+            description: "Designed with Arduino, HC-SR04 ultrasonic sensor, and LED display to detect object speed",
             image: "speed.png",
             link: "#",
             categories: ["Electronics"],
@@ -134,8 +130,8 @@ const ProjectsPage = () => {
         },
         {
             id: 12,
-            title: " Line Following Bot",
-            description: " Created a robot using Arduino, IR sensors, servo motors, and LiPo battery to follow line paths",
+            title: "Line Following Bot",
+            description: "Created a robot using Arduino, IR sensors, servo motors, and LiPo battery to follow line paths",
             image: "line.png",
             link: "#",
             categories: ["Electronics"],
@@ -143,9 +139,9 @@ const ProjectsPage = () => {
             status: "Completed"
         },
         {
-            id: 12,
-            title: " Lab Assistant Robot ",
-            description: " Building a LiDAR and ROS-powered robot for autonomous navigation with path planning",
+            id: 13,
+            title: "Lab Assistant Robot",
+            description: "Building a LiDAR and ROS-powered robot for autonomous navigation with path planning",
             image: "bot.png",
             link: "#",
             categories: ["Robotics"],
@@ -154,12 +150,10 @@ const ProjectsPage = () => {
         }
     ];
 
-    // Filter projects based on active category
     const filteredProjects = activeCategory === 'All' 
         ? portfolioItems 
         : portfolioItems.filter(item => item.categories.includes(activeCategory));
 
-    // Get status color
     const getStatusColor = (status) => {
         switch (status) {
             case 'Live':
@@ -175,7 +169,6 @@ const ProjectsPage = () => {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Header */}
             <div className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="flex items-center justify-between">
@@ -186,9 +179,7 @@ const ProjectsPage = () => {
                                 </svg>
                                 Back to Home
                             </Link>
-                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-4">
-                                All Projects
-                            </h1>
+                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-4">All Projects</h1>
                             <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
                                 Explore my complete portfolio of projects spanning web development, AI/ML, electronics, and more.
                             </p>
@@ -197,7 +188,6 @@ const ProjectsPage = () => {
                 </div>
             </div>
 
-            {/* Main Content */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
@@ -225,7 +215,7 @@ const ProjectsPage = () => {
                     </div>
                 </div>
 
-                {/* Category Filter Bar */}
+                {/* Filter */}
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {categories.map((category) => (
                         <button
@@ -248,124 +238,87 @@ const ProjectsPage = () => {
                     ))}
                 </div>
 
-                {/* Projects Grid */}
+                {/* Project Cards */}
                 {filteredProjects.length > 0 ? (
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                             {filteredProjects.map((project) => (
-                                <div
-                                    key={project.id}
-                                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                                >
-                                    <div className="relative">
-                                        {/* Project Link */}
-                                        <a href={project.link !== '#' ? project.link : undefined} 
-                                           target={project.link !== '#' ? "_blank" : undefined} 
-                                           rel={project.link !== '#' ? "noopener noreferrer" : undefined}
-                                           className={project.link === '#' ? 'cursor-default' : 'cursor-pointer'}>
-                                            
-                                            {/* Project Image */}
-                                            <div className="relative overflow-hidden">
-                                                <img
-                                                    src={project.image}
-                                                    alt={project.title}
-                                                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                                                    onError={(e) => {
-                                                        e.target.style.display = 'none';
-                                                        e.target.nextSibling.style.display = 'flex';
-                                                    }}
-                                                />
-                                                
-                                                {/* Fallback gradient */}
-                                                <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-500 hidden items-center justify-center">
-                                                    <div className="text-white text-center">
-                                                        <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                                            <span className="text-2xl">🎨</span>
-                                                        </div>
-                                                        <p className="font-medium">{project.title}</p>
+                                <div key={project.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                    <a
+                                        href={project.link !== '#' ? project.link : undefined}
+                                        target={project.link !== '#' ? "_blank" : undefined}
+                                        rel={project.link !== '#' ? "noopener noreferrer" : undefined}
+                                        className={project.link === '#' ? 'cursor-default' : 'cursor-pointer'}
+                                    >
+                                        <div className="relative overflow-hidden">
+                                            <img
+                                                src={project.image}
+                                                alt={project.title}
+                                                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextSibling.style.display = 'flex';
+                                                }}
+                                            />
+                                            <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-500 hidden items-center justify-center">
+                                                <div className="text-white text-center">
+                                                    <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                                        <span className="text-2xl">🎨</span>
                                                     </div>
+                                                    <p className="font-medium">{project.title}</p>
                                                 </div>
-                                                
-                                                {/* Status Badge */}
-                                                <div className="absolute top-4 right-4">
-                                                    <span className={`inline-block text-xs font-medium px-3 py-1 rounded-full ${getStatusColor(project.status)}`}>
-                                                        {project.status}
-                                                    </span>
-                                                </div>
-                                                
-                                                {/* Overlay */}
-                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
-                                                
-                                                {/* View Project Button */}
-                                                {project.link !== '#' && (
-                                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                                        <button className="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                                                            View Project
-                                                        </button>
-                                                    </div>
-                                                )}
                                             </div>
-                                        </a>
-                                        
-                                        {/* Project Info */}
-                                        <div className="p-6">
-                                            <div className="flex items-center justify-between mb-3">
-                                                <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-medium px-3 py-1 rounded-full">
-                                                    {project.type}
+                                            <div className="absolute top-4 right-4">
+                                                <span className={`inline-block text-xs font-medium px-3 py-1 rounded-full ${getStatusColor(project.status)}`}>
+                                                    {project.status}
                                                 </span>
                                             </div>
-                                            
-                                            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">
-                                                {project.title}
-                                            </h3>
-                                            
-                                            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                                                {project.description}
-                                            </p>
-                                            
-                                            {/* Technologies */}
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {project.technologies?.slice(0, 3).map((tech, index) => (
-                                                    <span key={index} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                                {project.technologies?.length > 3 && (
-                                                    <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-                                                        +{project.technologies.length - 3} more
-                                                    </span>
-                                                )}
-                                            </div>
-                                            
-                                            {/* Categories */}
-                                            <div className="flex flex-wrap gap-1">
-                                                {project.categories.slice(0, 2).map((category, index) => (
-                                                    <span key={index} className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">
-                                                        {category}
-                                                    </span>
-                                                ))}
-                                                {project.categories.length > 2 && (
-                                                    <span className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">
-                                                        +{project.categories.length - 2}
-                                                    </span>
-                                                )}
-                                            </div>
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+                                            {project.link !== '#' && (
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                                    <button className="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                                        View Project
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </a>
+                                    <div className="p-6">
+                                        <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-medium px-3 py-1 rounded-full mb-3">{project.type}</span>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">{project.title}</h3>
+                                        <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {project.technologies?.slice(0, 3).map((tech, index) => (
+                                                <span key={index} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">{tech}</span>
+                                            ))}
+                                            {project.technologies?.length > 3 && (
+                                                <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+                                                    +{project.technologies.length - 3} more
+                                                </span>
+                                            )}
+                                        </div>
+                                        <div className="flex flex-wrap gap-1">
+                                            {project.categories.slice(0, 2).map((cat, index) => (
+                                                <span key={index} className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">{cat}</span>
+                                            ))}
+                                            {project.categories.length > 2 && (
+                                                <span className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">
+                                                    +{project.categories.length - 2}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-
-                        {/* Results Summary */}
                         <div className="text-center">
                             <p className="text-gray-600">
                                 Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
-                                {activeCategory !== 'All' && ` in ${activeCategory}`}
+                                {activeCategory !== 'All' && ` in category ${activeCategory}`}
                             </p>
                         </div>
                     </>
                 ) : (
-                    /* No projects message */
                     <div className="text-center py-16">
                         <div className="text-gray-400 mb-4">
                             <span className="text-6xl">🎨</span>
@@ -374,7 +327,7 @@ const ProjectsPage = () => {
                             No projects found
                         </h3>
                         <p className="text-gray-500 mb-6">
-                            No projects available in the "{activeCategory}" category yet.
+                            No projects available in the category <span className="font-semibold">{activeCategory}</span>.
                         </p>
                         <button 
                             onClick={() => setActiveCategory('All')}

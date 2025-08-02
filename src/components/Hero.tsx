@@ -124,9 +124,10 @@ const Hero = () => {
                 </h2>
                 
                 <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                  I'm a creative technophile blending design, code, and curiosity. Whether it's 
+                   I&apos;m a creative technophile blending design, code, and curiosity. Whether it&apos;s 
                   full-stack web apps, machine learning, or UI/UX, I love solving problems with elegant design.
-                </p>
+                    </p>
+
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                   <a 

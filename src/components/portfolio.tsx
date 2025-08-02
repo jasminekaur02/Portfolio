@@ -251,8 +251,8 @@ const ProjectsSection = () => {
                             No projects found
                         </h3>
                         <p className="text-gray-500">
-                            No projects available in the "{activeCategory}" category yet.
-                        </p>
+  No projects available in the &quot;{activeCategory}&quot; category yet.
+</p>
                     </div>
                 )}
 
