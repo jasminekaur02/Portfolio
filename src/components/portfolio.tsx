@@ -175,8 +175,12 @@ const ProjectsSection = () => {
                                         className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                                         onError={(e) => {
                                             // Fallback gradient background
-                                            e.target.style.display = 'none';
-                                            e.target.nextSibling.style.display = 'flex';
+                                            const target = e.target as HTMLImageElement;
+                                            target.style.display = 'none';
+                                            const nextSibling = target.nextSibling as HTMLElement;
+                                            if (nextSibling) {
+                                                nextSibling.style.display = 'flex';
+                                            }
                                         }}
                                     />
                                     {/* Fallback gradient */}
