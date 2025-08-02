@@ -154,7 +154,7 @@ const ProjectsPage = () => {
         ? portfolioItems 
         : portfolioItems.filter(item => item.categories.includes(activeCategory));
 
-    const getStatusColor = (status) => {
+    const getStatusColor = (status: string): string => {
         switch (status) {
             case 'Live':
                 return 'bg-green-100 text-green-700';
@@ -256,8 +256,12 @@ const ProjectsPage = () => {
                                                 alt={project.title}
                                                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                                                 onError={(e) => {
-                                                    e.target.style.display = 'none';
-                                                    e.target.nextSibling.style.display = 'flex';
+                                                    const target = e.target as HTMLImageElement;
+                                                    target.style.display = 'none';
+                                                    const nextSibling = target.nextSibling as HTMLElement;
+                                                    if (nextSibling) {
+                                                        nextSibling.style.display = 'flex';
+                                                    }
                                                 }}
                                             />
                                             <div className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-500 hidden items-center justify-center">
