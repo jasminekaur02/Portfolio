@@ -295,9 +295,9 @@ const ProjectsPage = () => {
                                             {project.technologies?.slice(0, 3).map((tech, index) => (
                                                 <span key={index} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">{tech}</span>
                                             ))}
-                                            {project.technologies?.length > 3 && (
+                                            {(project.technologies?.length ?? 0) > 3 && (
                                                 <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-                                                    +{project.technologies.length - 3} more
+                                                    +{(project.technologies?.length ?? 0) - 3} more
                                                 </span>
                                             )}
                                         </div>
