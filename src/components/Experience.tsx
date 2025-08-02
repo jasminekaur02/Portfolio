@@ -30,10 +30,12 @@ const experiences = [
 ];
 
 export default function ExperienceChronicle() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = () => {
+    if (!containerRef.current) return;
+    
     const scrollLeft = containerRef.current.scrollLeft;
     const width = containerRef.current.offsetWidth;
     const index = Math.round(scrollLeft / width);
@@ -43,6 +45,8 @@ export default function ExperienceChronicle() {
 
   useEffect(() => {
     const ref = containerRef.current;
+    if (!ref) return;
+    
     ref.addEventListener('scroll', handleScroll);
     return () => ref.removeEventListener('scroll', handleScroll);
   }, []);
