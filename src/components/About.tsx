@@ -1,115 +1,62 @@
 "use client";
-import { FaHome, FaUser, FaBriefcase, FaPhone } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { useState } from "react";
+import Lottie from "lottie-react";
+import devAnimation from "../lotties/dev-animation.json"; // adjust if inside components // adjust path if needed
 
-const About = () => {
-    const [activeSection, setActiveSection] = useState('about');
+const AboutMe = () => {
+  const [bio] = useState(
+    "I build things that talk, think, and work — digitally and electrically."
+  );
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY;
+  const [skills] = useState([
+    { name: "UI/UX", percent: 92 },
+    { name: "Full Stack Web Development", percent: 80 },
+    { name: "Machine Learning", percent: 70 },
+    { name: "Data Analysis", percent: 60 },
+  ]);
 
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
+  return (
+    <section className="flex flex-col md:flex-row items-center justify-center bg-white py-12 px-6 md:px-20 gap-10">
+      {/* Left - Lottie Animation with border */}
+      <div className="relative w-[350px] h-[350px] mr-12">
+        {/*
+          This is the div for the blue border.
+          I've adjusted the 'top' and 'left' values to move it down and to the left.
+          - 'top-6' is now 'top-10' (moved down)
+          - '-left-6' is now '-left-10' (moved further left)
+        */}
+        <div className="absolute top-4 -left-8 w-full h-full border-4 border-blue-500 z-0 rounded-3xl"></div>
+        
+        {/* This is the container for the Lottie animation */}
+        <div className="rounded-3xl relative z-10 overflow-hidden">
+          <Lottie animationData={devAnimation} loop={true} className="w-full h-full" />
+        </div>
+      </div>
 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    setActiveSection(section.id);
-                }
-            });
-        };
+      {/* Right - Content */}
+      <div className="max-w-xl w-full">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        About Me
+                    </h2>
+        <p className="text-gray-600 mb-6 leading-relaxed">{bio}</p>
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    return (
-        <section className="flex flex-col md:flex-row h-screen bg-gray-100" id="about">
-            {/* Left Sidebar */}
-            <div className="relative w-full md:w-1/5 bg-yellow-500 p-8 flex flex-col items-start">
-                <h1 className="text-2xl font-bold text-white mb-4 text-center">ABOUT ME</h1>
-                <nav className="flex flex-col space-y-6">
-                    <div className="flex items-center">
-                        <div className={`h-3 w-3 rounded-full ${activeSection === 'home' ? 'bg-white' : 'bg-gray-400'} mr-2`}></div>
-                        <a href="#home" className={`text-white hover:text-yellow-300 ${activeSection === 'home' ? 'font-bold' : ''}`}>HOME</a>
-                    </div>
-                    <div className="flex items-center">
-                        <div className={`h-3 w-3 rounded-full ${activeSection === 'about' ? 'bg-white' : 'bg-gray-400'} mr-2`}></div>
-                        <a href="#about" className={`text-white hover:text-yellow-300 ${activeSection === 'about' ? 'font-bold' : ''}`}>ABOUT ME</a>
-                    </div>
-                    <div className="flex items-center">
-                        <div className={`h-3 w-3 rounded-full ${activeSection === 'resume' ? 'bg-white' : 'bg-gray-400'} mr-2`}></div>
-                        <a href="#resume" className={`text-white hover:text-yellow-300 ${activeSection === 'resume' ? 'font-bold' : ''}`}>RESUME</a>
-                    </div>
-                    <div className="flex items-center">
-                        <div className={`h-3 w-3 rounded-full ${activeSection === 'portfolio' ? 'bg-white' : 'bg-gray-400'} mr-2`}></div>
-                        <a href="#portfolio" className={`text-white hover:text-yellow-300 ${activeSection === 'portfolio' ? 'font-bold' : ''}`}>PORTFOLIO</a>
-                    </div>
-                    <div className="flex items-center">
-                        <div className={`h-3 w-3 rounded-full ${activeSection === 'contact' ? 'bg-white' : 'bg-gray-400'} mr-2`}></div>
-                        <a href="#contact" className={`text-white hover:text-yellow-300 ${activeSection === 'contact' ? 'font-bold' : ''}`}>CONTACT</a>
-                    </div>
-                </nav>
+        {skills.map((skill, index) => (
+          <div key={index} className="mb-4">
+            <div className="flex justify-between font-semibold text-sm md:text-base">
+              <span>{skill.name}</span>
+              <span>{skill.percent}%</span>
             </div>
-
-            {/* Main Content */}
-            <div className="flex-1 p-8">
-                {/* Education Section */}
-                <div className="mb-8">
-                    <h3 className="text-2xl font-semibold">EDUCATION</h3>
-                    <div className="bg-white p-4 shadow-md rounded-lg mb-4">
-                        <h4 className="font-bold text-yellow-500">Electronics and Communication engineering</h4>
-                        <p>Dr BR Ambedkar National Institute of Technology Jalandhar </p>
-                        <p>2022-2026</p>
-                        <p>Current CGPA - 8.07</p>
-                    </div>
-                    <div className="bg-white p-4 shadow-md rounded-lg mb-4">
-                        <h4 className="font-bold text-yellow-500">10th +2</h4>
-                        <p>Bal Bharati Public School Ludhiana - Affiliated to CBSE</p>
-                        <p>96.4% - Non Medical</p>
-                    </div>
-                    <div className="bg-white p-4 shadow-md rounded-lg">
-                        <h4 className="font-bold text-yellow-500">10th</h4>
-                        <p>Bal Bharati Public School Ludhiana - Affiliated to CBSE</p>
-                        <p>97.8%</p>
-                    </div>
-                </div>
-
-                {/* Experience Section */}
-                <div>
-                    <h3 className="text-2xl font-semibold">EXPERIENCE</h3>
-                    <div className="bg-white p-4 shadow-md rounded-lg mb-4">
-                        <h4 className="font-bold text-yellow-500">Instibuzz</h4>
-                        <p className='font-semibold'>UI/UX Designer REMOTE</p>
-                        <ul>Developed user-friendly interfaces and improved user experience for the company’s online platform</ul>
-                        <ul>Designed 20+ screens with features as per client’s requirement for both Mobile and Desktop View on Figma</ul>
-                    </div>
-                    <div className="bg-white p-4 shadow-md rounded-lg">
-                        <h4 className="font-bold text-yellow-500">Byteoski Developers</h4>
-                        <p className='font-semibold'>SWE INTERN REMOTE</p>
-                        <ul>Developed SaaS products with a team of 12+ members using Next.js and Tailwind CSS</ul>
-                    </div>
-                </div>
+            <div className="w-full h-3 bg-gray-200 rounded-full mt-1">
+              <div
+                className="h-3 bg-yellow-400 rounded-full transition-all duration-500 ease-in-out"
+                style={{ width: `${skill.percent}%` }}
+              ></div>
             </div>
-
-            {/* Sidebar Icons (optional) */}
-            <div className="flex flex-col space-y-6 absolute top-1/2 transform -translate-y-1/2 right-8">
-                <a href="#" className="text-yellow-500 hover:text-yellow-600">
-                    <FaHome size={24} />
-                </a>
-                <a href="#" className="text-yellow-500 hover:text-yellow-600">
-                    <FaUser size={24} />
-                </a>
-                <a href="#" className="text-yellow-500 hover:text-yellow-600">
-                    <FaBriefcase size={24} />
-                </a>
-                <a href="#" className="text-yellow-500 hover:text-yellow-600">
-                    <FaPhone size={24} />
-                </a>
-            </div>
-        </section>
-    );
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
-export default About;
+export default AboutMe;

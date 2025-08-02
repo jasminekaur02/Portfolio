@@ -27,12 +27,12 @@ const Contact = ({ activeSection }) => { // Accept activeSection as a prop
                 <p className="text-lg mb-8">You can reach me through the following methods:</p>
                 <div className="flex flex-col items-center space-y-4">
                     <div className="flex items-center">
-                        <img src="/path/to/email-icon.png" alt="Email" className="mr-2" />
-                        <span className="text-lg">your.email@example.com</span>
+                       
+                        <span className="text-lg">jasminekaurmukkar@gmail.com</span>
                     </div>
                     <div className="flex items-center">
-                        <img src="/path/to/phone-icon.png" alt="Phone" className="mr-2" />
-                        <span className="text-lg">+123 456 7890</span>
+                        
+                        <span className="text-lg"></span>
                     </div>
                 </div>
                 <p className="mt-16 text-lg font-semibold">THANKS FOR YOUR PATIENCE!</p>

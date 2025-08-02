@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.49.0",
+    "@lottiefiles/react-lottie-player": "^3.6.0",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.536.0",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",
