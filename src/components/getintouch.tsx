@@ -8,11 +8,11 @@ const Contact = () => {
     message: ''
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
     // Add form submission logic
@@ -62,7 +62,7 @@ const Contact = () => {
             <label className="block font-medium">Message<span className="text-red-500">*</span></label>
             <textarea
               name="message"
-              rows="5"
+              rows={5}
               required
               value={formData.message}
               onChange={handleChange}
