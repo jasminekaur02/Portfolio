@@ -125,7 +125,7 @@ const Hero = () => {
                 
                 <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
   I&apos; m a hands-on engineer who loves turning circuits, sensors, and algorithms into meaningful solutions. 
-  Whether it's robotics, IoT, or edge AI, I craft embedded systems that think, adapt, and solve real-world challenges.
+  Whether it&apos; s robotics, IoT, or edge AI, I craft embedded systems that think, adapt, and solve real-world challenges.
 </p>
 
 
