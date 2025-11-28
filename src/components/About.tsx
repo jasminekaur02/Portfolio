@@ -9,9 +9,10 @@ const AboutMe = () => {
   );
 
   const [skills] = useState([
-    { name: "UI/UX", percent: 92 },
-    { name: "Full Stack Web Development", percent: 80 },
-    { name: "Machine Learning", percent: 70 },
+    { name: "Robotics", percent: 90 },
+    { name: "Embedded Systems", percent: 90 },
+    { name: "UI/UX and Full Stack Web Development", percent: 80 },
+    { name: "Machine Learning", percent: 80 },
     { name: "Data Analysis", percent: 60 },
   ]);
 

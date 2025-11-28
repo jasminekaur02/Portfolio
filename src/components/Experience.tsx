@@ -17,7 +17,7 @@ const experiences = [
     location: 'Remote',
     description:
       'Led a team to develop SaaS products, building scalable web applications. Extractopus.com: Platform for locating professionals (Next.js, Tailwind CSS, PostgreSQL)',
-    image: '/images/byteoski.png',
+    image: '/Screenshot 2025-11-28 131722.png',
   },
   {
     year: '2023',
@@ -25,7 +25,7 @@ const experiences = [
     location: 'UI/UX Intern',
     description:
       'Designed interactive elements that improved user engagement, increasing visits by 20%. Created 20+ screens for Mobile/Desktop using Figma.',
-    image: '/images/instibuzz.png',
+    image: '/instibuzz.png',
   },
 ];
 

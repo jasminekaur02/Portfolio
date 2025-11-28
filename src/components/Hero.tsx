@@ -120,13 +120,14 @@ const Hero = () => {
                 
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-yellow-500 leading-tight">
                   Budding
-                  <span className="block">Software Engineer</span>
+                  <span className="block"> Engineer</span>
                 </h2>
                 
                 <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-                   I&apos;m a creative technophile blending design, code, and curiosity. Whether it&apos;s 
-                  full-stack web apps, machine learning, or UI/UX, I love solving problems with elegant design.
-                    </p>
+  I&apos; m a hands-on engineer who loves turning circuits, sensors, and algorithms into meaningful solutions. 
+  Whether it's robotics, IoT, or edge AI, I craft embedded systems that think, adapt, and solve real-world challenges.
+</p>
+
 
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
@@ -137,7 +138,7 @@ const Hero = () => {
                     Hire Me
                   </a>
                   <a 
-                    href="/JASMINE_KAUR_RESUME_AUGUST.pdf" 
+                    href="/Jasmine_Honeywell_Resume.pdf" 
                     download 
                     className="border-2 border-yellow-400 text-yellow-600 font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
                   >

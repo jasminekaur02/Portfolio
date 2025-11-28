@@ -22,40 +22,48 @@ const Hackathons = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-64">
-      <h2 className="text-center text-4xl md:text-5xl font-bold mb-20">Hackathons</h2>
+    <section className="bg-white">
+      <div className="max-w-7xl mx-auto px-4 py-32 md:py-40 lg:py-48">
+        
+        {/* 👇 KEEP THIS HIGHER ABOVE TIMELINE */}
+        <h2 className="text-center text-4xl md:text-5xl font-bold mb-32 md:mb-40">
+          Hackathons
+        </h2>
 
-      {/* Timeline container */}
-      <div className="relative">
-        {/* Horizontal line */}
-        <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-300 transform -translate-y-1/2 z-0" />
+        {/* Timeline container */}
+        <div className="relative mt-4">
+          {/* Horizontal line */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-gray-300 -translate-y-1/2 z-0" />
 
-        {/* Points */}
-        <div className="flex justify-around items-center relative z-10">
-          {EVENTS.map((event, idx) => {
-            const isTop = idx % 2 === 0;
-            return (
-              <div key={idx} className="relative w-1/4 flex flex-col items-center">
-                {/* Numbered Circle */}
-                <div className="z-10 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm font-semibold">
-                  {idx + 1}
-                </div>
-
-                {/* Card */}
+          <div className="flex flex-col md:flex-row md:justify-between items-center gap-16 relative z-10">
+            {EVENTS.map((event, idx) => {
+              const isTop = idx % 2 === 0;
+              return (
                 <div
-                  className={`absolute w-64 p-4 border border-black bg-white rounded-md shadow-md ${
-                    isTop ? '-top-40' : '-bottom-40'
-                  }`}
+                  key={idx}
+                  className="relative flex flex-col items-center md:w-1/4"
                 >
-                  <h3 className="font-semibold text-lg mb-1">{event.title}</h3>
-                  <p className="text-sm text-gray-700">{event.description}</p>
+                  {/* Number */}
+                  <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-semibold">
+                    {idx + 1}
+                  </div>
+
+                  {/* Card */}
+                  <div
+                    className={`w-full md:w-72 p-4 border border-black bg-white rounded-md shadow-md text-center md:text-left
+                    md:absolute ${isTop ? 'md:-top-32' : 'md:-bottom-32'}`}
+                  >
+                    <h3 className="font-semibold text-lg mb-1">{event.title}</h3>
+                    <p className="text-sm text-gray-700">{event.description}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
